@@ -10,6 +10,8 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.amap.api.maps.MapsInitializer;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.gotoMapbutton).setOnClickListener(
                 v -> {
                     Log.d("MyTag", "点击按钮");
+                    // 隐私合规
+                    MapsInitializer.updatePrivacyShow(this, true, true);
+                    MapsInitializer.updatePrivacyAgree(this, true);
                     startActivity(new Intent(MainActivity.this, mappage.class));
                 }
         );
